@@ -22,8 +22,8 @@ const userSchema = new Schema(
         },
         required: [true, 'User email required']
     },
-    thoughts: [],
-    friends: [],
+    // thoughts: [thoughtSchema],
+    // friends: [userSchema],
   },
   {
     toJSON: {
