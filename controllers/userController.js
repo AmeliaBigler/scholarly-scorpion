@@ -31,6 +31,10 @@ module.exports = {
       }
     },
     // Create a new user
+    // {
+    //   "username": "user123",
+    //   "email": "useruseremail@email.com"
+    // }
     async createUser(req, res) {
         try {
           const user = await User.create(req.body);

@@ -1,5 +1,6 @@
 // Schema only (not a model)
 const { Schema, Types } = require('mongoose');
+const dayjs = require('dayjs');
 
 const reactionSchema = new Schema(
   {
@@ -25,10 +26,13 @@ const reactionSchema = new Schema(
   },
   {
     toJSON: {
-      getters: true,
+      virtuals: true,
     },
     id: false,
   }
 );
+reactionSchema.virtual('formatDate').get(function () {
+  return dayjs(this.createdAt).format('MMM DD, YYYY HH:MM a');
+});
 
 module.exports = reactionSchema;
